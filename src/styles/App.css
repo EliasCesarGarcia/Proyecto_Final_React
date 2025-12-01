@@ -1,0 +1,459 @@
+/* src/styles/App.css */
+
+/* --- Estilos Globales y de Contenedor --- */
+body {
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 4rem;
+  flex-grow: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Barra de Navegación - Estilo Elegante y Original --- */
+
+/* Contenedor principal de la barra de navegación */
+.navbar {
+  /* Fondo oscuro y sofisticado, no un negro puro */
+  background-color: #1f1f1f;
+  /* Un borde sutil en la parte inferior para separarlo del contenido */
+  border-bottom: 1px solid #333;
+  padding: 0.5rem 2rem; /* Menos padding vertical para un look más fino */
+  /* Sombra para darle una ligera profundidad */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Lista que contiene los enlaces */
+.navbar-list {
+  list-style: none; /* Quitamos los puntos de la lista */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Ponemos los elementos en fila */
+  justify-content: center; /* Centramos los enlaces en el espacio disponible */
+  gap: 2.5rem; /* Un poco más de espacio entre cada enlace */
+}
+
+/* Enlace individual (la etiqueta <a> dentro del <Link>) */
+.navbar-item a {
+  /* Hacemos el elemento relativo para poder posicionar el subrayado animado */
+  position: relative;
+  
+  display: inline-block;
+  padding: 1rem 0.5rem; /* Padding arriba/abajo para área de clic, poco a los lados */
+  
+  /* Un color de texto claro que no sea blanco puro para reducir el contraste fuerte */
+  color: #e0e0e0;
+  text-decoration: none; /* Quitamos el subrayado por defecto */
+  font-size: 1rem;
+  font-weight: 500; /* Un peso de fuente semi-negrita */
+  letter-spacing: 0.5px; /* Pequeño espaciado entre letras para más elegancia */
+  
+  /* Transición suave para el cambio de color del texto */
+  transition: color 0.3s ease-in-out;
+}
+
+/* Cuando el ratón está sobre el enlace, el texto se vuelve más brillante */
+.navbar-item a:hover {
+  color: #ffffff; /* El texto se ilumina a blanco puro */
+}
+
+/* El elemento mágico: el subrayado animado (creado con un "pseudo-elemento") */
+.navbar-item a::after {
+  /* Siempre debe tener 'content', aunque esté vacío */
+  content: '';
+  
+  /* Posición absoluta relativa al enlace (que es 'position: relative') */
+  position: absolute;
+  bottom: 10px; /* Distancia del subrayado al texto */
+  left: 0;
+  
+  /* Dimensiones del subrayado */
+  width: 100%;
+  height: 2px;
+  
+  /* Un color de acento vibrante y moderno */
+  background-color: #00b4d8;
+  
+  /* ESTA ES LA CLAVE DE LA ANIMACIÓN: */
+  /* Empieza completamente "aplastado" horizontalmente (invisible) */
+  transform: scaleX(0);
+  /* El punto de origen de la transformación es el centro */
+  transform-origin: center;
+  /* Transición suave para la animación de "crecimiento" */
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Cuando el ratón está sobre el enlace, el subrayado crece hasta su tamaño completo */
+.navbar-item a:hover::after {
+  /* El subrayado se escala a su tamaño normal (100% de ancho) */
+  transform: scaleX(1);
+}
+
+
+/* --- Secciones de Contenido (Productos, Carrito) --- */
+.products-section, .cart-section {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  min-width: 300px;
+}
+
+.products-section { flex: 2; }
+.cart-section { flex: 1; }
+h2 {
+  color: #34495e;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* src/styles/App.css (Añadir este bloque) */
+
+/* --- Estilos para la Imagen del Producto --- */
+.product-image {
+  /* Ancho máximo del 100% para asegurar que la imagen nunca se salga de su contenedor (la tarjeta). */
+  max-width: 100%;
+  
+  /* Le damos una altura fija. Esto es clave para que todas las tarjetas de producto
+     tengan la misma altura, incluso si las imágenes originales tienen proporciones diferentes. */
+  height: 180px;
+  
+  /* ESTA PROPIEDAD ES MUY IMPORTANTE:
+     'object-fit: cover' hace que la imagen cubra todo el espacio disponible (100% de ancho x 180px de alto)
+     sin deformarse. Si la imagen es muy ancha o muy alta, se recortará por los lados
+     para encajar, pero nunca se verá estirada o aplastada. */
+  object-fit: cover;
+  
+  /* Un margen inferior para separarla del título del producto. */
+  margin-bottom: 1rem;
+  
+  /* Un borde redondeado sutil en las esquinas superiores para que coincida con la tarjeta. */
+  border-radius: 8px 8px 0 0;
+}
+
+.product-item h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+.product-item p { margin: 0 0 1rem 0; font-size: 1rem; font-weight: bold; color: #27ae60; }
+.cart-items { list-style: none; padding: 0; margin-bottom: 1.5rem; }
+.cart-item { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #eee; }
+.cart-item span:first-child { font-weight: 500; }
+.empty-cart-message { color: #7f8c8d; font-style: italic; text-align: center; padding: 2rem 0; }
+
+/* --- Botones --- */
+.btn { padding: 0.6rem 1.2rem; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem; font-weight: bold; transition: background-color 0.3s ease, transform 0.2s ease; }
+.btn-add { background-color: #3498db; color: white; }
+.btn-add:hover { background-color: #2980b9; transform: translateY(-2px); }
+.btn-clear { background-color: #e74c3c; color: white; width: 100%; }
+.btn-clear:hover { background-color: #c0392b; }
+
+/* --- Footer --- */
+.footer {
+  background-color: #2c3e50;
+  color: #bdc3c7;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+}
+
+/* --- Mensajes de Carga y Error --- */
+.loading-message, .error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.error-message { color: #e74c3c; }
+
+/* --- Estilos para Páginas Estáticas (About, Contact) --- */
+.page-container {
+  background-color: white;
+  padding: 2rem 3rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+}
+
+.page-container h2 { margin-top: 0; }
+.page-container p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* src/styles/App.css (Añadir al final del archivo) */
+
+/* --- Estilos para el botón de autenticación --- */
+.auth-btn {
+  background-color: #16a085; /* Un color verde distintivo */
+  color: white;
+  margin-left: auto; /* ¡Clave! Empuja el botón al final del contenedor flex */
+  align-self: center; /* Lo centra verticalmente dentro del navbar */
+  padding: 0.5rem 1rem;
+}
+
+.auth-btn:hover {
+  background-color: #1abc9c;
+  transform: translateY(-1px);
+}
+
+/* --- Ajustes en Navbar para el nuevo botón --- */
+.navbar {
+  display: flex; /* Habilitamos flexbox para alinear la lista y el botón */
+  align-items: center; /* Centramos los items verticalmente */
+}
+
+.navbar-list {
+  justify-content: flex-start; /* Alineamos los links a la izquierda */
+}
+
+
+/* --- Estilo para el enlace del producto en la lista --- */
+.product-link {
+  text-decoration: none; /* Quita el subrayado del enlace */
+  color: inherit; /* Hace que el texto herede el color de su contenedor */
+  display: block; /* Asegura que toda el área sea clickeable */
+  transition: opacity 0.2s ease-in-out;
+}
+
+.product-link:hover {
+  opacity: 0.85; /* Efecto sutil al pasar el mouse */
+}
+
+.product-link:hover h3 {
+  color: #3498db; /* Cambia el color del título al pasar el mouse */
+}
+
+
+/* --- Estilos para la página de detalle del producto --- */
+.product-detail-container {
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.product-detail-image {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.product-detail-description {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
+  line-height: 1.7;
+}
+
+.product-detail-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+/* Animación simple de aparición */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* src/styles/App.css (añadir al final) */
+.page-container input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+
+/* src/styles/App.css (añadir al final) */
+.auth-controls {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 1rem;
+}
+
+.welcome-user {
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+/* Ajuste para el botón de login cuando es un NavLink */
+.navbar a.btn.auth-btn {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  line-height: normal;
+}
+.navbar a.btn.auth-btn::after {
+  content: none; /* Quitamos la línea animada del botón */
+}
+
+/* ... (todo tu código CSS existente va aquí, no lo borres) ... */
+
+/* Pegar este bloque al final de tu archivo src/styles/App.css */
+/* ================================================================= */
+/* == ESTILOS PARA NOTIFICACIÓN DE ÉXITO == */
+/* ================================================================= */
+.success-notification {
+  /* Posición fija para que flote sobre el resto del contenido */
+  position: fixed;
+  top: 20px; /* Distancia desde la parte superior */
+  left: 50%; /* Lo movemos al 50% del ancho de la pantalla */
+  transform: translateX(-50%); /* Lo centramos exactamente con un truco de transformación */
+  
+  /* Estilos visuales */
+  background-color: #28a745; /* Un verde de éxito claro y agradable */
+  color: white; /* Texto blanco */
+  padding: 1rem 2rem; /* Espacio interior generoso */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+  
+  /* Asegura que siempre esté por encima de otros elementos */
+  z-index: 1000;
+  
+  /* Aplicamos la animación que definimos abajo */
+  animation: fadeInOut 4s ease-in-out;
+}
+
+/* Animación para que la notificación aparezca y desaparezca suavemente */
+@keyframes fadeInOut {
+  /* Aparece durante el primer 10% del tiempo */
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  /* Se mantiene visible hasta el 90% del tiempo */
+  90% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  /* Se desvanece en el último 10% */
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+}
+
+/* src/styles/App.css (Añadir al final) */
+
+/* --- Estilos para el Total del Carrito --- */
+.cart-total {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid #e0e0e0;
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.cart-total strong {
+  color: #34495e;
+}
+
+.cart-section .btn-add {
+  margin-top: 1rem;
+}
+
+.cart-section .btn-clear {
+  margin-top: 0.5rem;
+}
+
+/* --- Botón en página de detalle de producto --- */
+.product-detail-container .btn-add {
+    margin-top: 1.5rem;
+}
+
+/* src/styles/App.css (Añadir al final) */
+
+/* --- Estilos para Notificaciones Globales --- */
+.notification {
+  position: fixed;
+  top: 80px; /* Debajo de la barra de navegación */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  min-width: 300px;
+  text-align: center;
+}
+
+.notification.success {
+  background-color: #28a745; /* Verde */
+}
+
+.notification.error {
+  background-color: #dc3545; /* Rojo */
+}

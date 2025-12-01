@@ -1,0 +1,279 @@
+/* src/App.css */
+
+/* --- Estilos Globales y de Contenedor --- */
+body {
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 4rem;
+  flex-grow: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Barra de Navegación - Estilo Elegante y Original --- */
+
+/* Contenedor principal de la barra de navegación */
+.navbar {
+  background-color: #1f1f1f;
+  border-bottom: 1px solid #333;
+  padding: 0.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+}
+
+/* Lista que contiene los enlaces */
+.navbar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  gap: 2.5rem;
+}
+
+/* Enlace individual (la etiqueta <a> dentro del <NavLink>) */
+.navbar-item a {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 0.5rem;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-item a:hover {
+  color: #ffffff;
+}
+
+.navbar-item a::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #00b4d8;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.navbar-item a:hover::after {
+  transform: scaleX(1);
+}
+
+/* --- Secciones de Contenido (Productos, Carrito) --- */
+.products-section, .cart-section {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  min-width: 300px;
+}
+
+.products-section { flex: 2; }
+.cart-section { flex: 1; }
+h2 {
+  color: #34495e;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Estilos para la Imagen del Producto --- */
+.product-image {
+  max-width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: 8px 8px 0 0;
+}
+
+.product-item h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+.product-item p { margin: 0 0 1rem 0; font-size: 1rem; font-weight: bold; color: #27ae60; }
+.cart-items { list-style: none; padding: 0; margin-bottom: 1.5rem; }
+.cart-item { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #eee; }
+.cart-item span:first-child { font-weight: 500; }
+.empty-cart-message { color: #7f8c8d; font-style: italic; text-align: center; padding: 2rem 0; }
+
+/* --- Botones --- */
+.btn { padding: 0.6rem 1.2rem; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem; font-weight: bold; transition: background-color 0.3s ease, transform 0.2s ease; }
+.btn-add { background-color: #3498db; color: white; }
+.btn-add:hover { background-color: #2980b9; transform: translateY(-2px); }
+.btn-clear { background-color: #e74c3c; color: white; width: 100%; }
+.btn-clear:hover { background-color: #c0392b; }
+
+/* --- Footer --- */
+.footer {
+  background-color: #2c3e50;
+  color: #bdc3c7;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+}
+
+/* --- Mensajes de Carga y Error --- */
+.loading-message, .error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.error-message { color: #e74c3c; }
+
+/* --- Estilos para Páginas Estáticas (About, Contact) --- */
+.page-container {
+  background-color: white;
+  padding: 2rem 3rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+}
+
+.page-container h2 { margin-top: 0; }
+.page-container p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* --- Estilos para el botón de autenticación --- */
+.auth-btn {
+  background-color: #16a085;
+  color: white;
+  margin-left: auto;
+  align-self: center;
+  padding: 0.5rem 1rem;
+}
+
+.auth-btn:hover {
+  background-color: #1abc9c;
+  transform: translateY(-1px);
+}
+
+/* --- Estilo para el enlace del producto en la lista --- */
+.product-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.product-link:hover {
+  opacity: 0.85;
+}
+
+.product-link:hover h3 {
+  color: #3498db;
+}
+
+/* --- Estilos para la página de detalle del producto --- */
+.product-detail-container {
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.product-detail-image {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.product-detail-description {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
+  line-height: 1.7;
+}
+
+.product-detail-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- NUEVOS ESTILOS PARA EL NAVLINK ACTIVO --- */
+/* Esta es la regla que se aplicará al enlace <a> cuando NavLink le añada la clase 'active' */
+.navbar-item a.active {
+  color: #ffffff; /* El texto se vuelve blanco brillante */
+  font-weight: 700; /* La fuente se hace más gruesa para destacar */
+}
+
+/* Hacemos que la línea de subrayado animada sea permanentemente visible en el enlace activo */
+.navbar-item a.active::after {
+  transform: scaleX(1); /* La línea se estira a su ancho completo */
+  background-color: #1abc9c; /* Le damos un color verde distintivo para que resalte */
+}

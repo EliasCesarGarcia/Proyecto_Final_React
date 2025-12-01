@@ -1,0 +1,21 @@
+/* src/index.css */
+
+/*
+  Usamos un reseteo básico para que la página se vea más consistente en diferentes navegadores.
+*/
+body {
+  margin: 0; /* Quitamos el margen que los navegadores ponen por defecto. */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; /* Usamos fuentes del sistema para un rendimiento óptimo. */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+  Aseguramos que el layout principal ocupe todo el ancho y alto.
+*/
+#root {
+  width: 100%;
+  min-height: 100vh;
+}

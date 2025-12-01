@@ -1,0 +1,160 @@
+/* src/styles/FormularioProducto.css */
+
+/* Contenedor principal del formulario */
+.product-form {
+  max-width: 500px; /* Ancho máximo para que no se estire demasiado en pantallas grandes */
+  margin: 2rem auto; /* Centra el formulario horizontalmente y le da espacio arriba/abajo */
+  padding: 2rem; /* Espacio interior para que los elementos no toquen los bordes */
+  background-color: #f9f9f9; /* Un color de fondo suave, casi blanco */
+  border-radius: 8px; /* Bordes redondeados para un look moderno */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
+  border: 1px solid #e0e0e0;
+}
+
+/* Estilo para el título dentro del formulario */
+.product-form h3 {
+  text-align: center; /* Centra el título */
+  margin-top: 0; /* Quita el margen superior por defecto */
+  margin-bottom: 1.5rem; /* Espacio debajo del título */
+  color: #333; /* Color de texto oscuro */
+}
+
+/* Contenedor para cada grupo de etiqueta + campo (label + input) */
+.form-group {
+  margin-bottom: 1.5rem; /* Espacio entre cada campo del formulario */
+}
+
+/* Estilo para las etiquetas (Nombre, Precio, Descripción) */
+.form-group label {
+  display: block; /* Hace que la etiqueta ocupe su propia línea */
+  margin-bottom: 0.5rem; /* Pequeño espacio entre la etiqueta y el campo */
+  font-weight: 600; /* Texto en negrita para que resalte */
+  color: #555;
+}
+
+/* Estilos comunes para los campos de texto y el área de texto */
+.form-group input,
+.form-group textarea {
+  width: 100%; /* Ocupa todo el ancho disponible del contenedor */
+  padding: 0.8rem; /* Espacio interior para que el texto no pegue al borde */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 4px; /* Bordes ligeramente redondeados */
+  font-size: 1rem; /* Tamaño de letra estándar */
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave para el foco */
+}
+
+/* Estilo cuando un campo está seleccionado (en foco) */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none; /* Quita el borde por defecto del navegador */
+  border-color: #007bff; /* Cambia el color del borde a un azul llamativo */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Añade una sombra azulada */
+}
+
+/* Estilo para el botón de enviar */
+.product-form button[type="submit"] {
+  width: 100%; /* Ocupa todo el ancho */
+  padding: 0.9rem; /* Un poco más de padding para que sea más grande */
+  background-color: #007bff; /* Color de fondo azul */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+  font-size: 1.1rem; /* Letra un poco más grande */
+  font-weight: 700; /* Texto en negrita */
+  cursor: pointer; /* Muestra una manito al pasar el cursor */
+  transition: background-color 0.3s; /* Transición suave para el hover */
+}
+
+/* Estilo cuando el cursor está sobre el botón */
+.product-form button[type="submit"]:hover {
+  background-color: #0056b3; /* Un azul un poco más oscuro */
+}
+
+/* Estilo para los mensajes de error */
+.error-message {
+  color: #d9534f; /* Color rojo para indicar error */
+  font-size: 0.875rem; /* Letra un poco más pequeña */
+  margin-top: 0.25rem; /* Espacio entre el campo y el mensaje de error */
+}
+
+/* src/styles/FormularioProducto.css */
+
+/* ... (todos los estilos anteriores para .product-form, .form-group, etc., se mantienen igual) ... */
+
+.product-form {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.product-form h3 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1rem; /* Reducimos un poco el margen para un look más compacto */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.product-form button[type="submit"] {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 1rem; /* Añadimos un margen superior al botón */
+}
+
+.product-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* ================================================================= */
+/* == ESTILOS MEJORADOS Y MINIMALISTAS PARA VALIDACIONES == */
+/* ================================================================= */
+.error-message {
+  color: #d9534f; /* Un rojo claro y visible para el texto. */
+  font-size: 0.875rem; /* Letra un poco más pequeña que el texto normal. */
+  font-weight: 500; /* Ligeramente en negrita para que resalte. */
+  margin-top: 4px; /* Un pequeño espacio para separarlo del input. */
+  /* Quitamos el fondo, borde y padding para hacerlo minimalista y no ocupar espacio. */
+  /* Le damos una altura mínima para que el layout no "salte" cuando aparece el mensaje */
+  min-height: 1.2rem; 
+}
