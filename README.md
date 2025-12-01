@@ -1,16 +1,61 @@
-# React + Vite
+# 🛒 TiendaTech - eCommerce React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto final para el curso "Talento Tech" de React JS. Esta aplicación es un eCommerce funcional que simula un entorno de producción, incluyendo gestión de estado global, enrutamiento, autenticación simulada y operaciones CRUD.
 
-Currently, two official plugins are available:
+## 📋 Características Principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **Catálogo de Productos:** Visualización de productos con paginación y buscador en tiempo real.
+*   **Detalle de Producto:** Vista individual con rutas dinámicas.
+*   **Carrito de Compras:** Gestión de estado global (Context API) para agregar, eliminar y comprar productos.
+*   **Autenticación:** Login simulado (Context API + localStorage) con rutas protegidas.
+*   **Panel de Administración (CRUD):**
+    *   Crear nuevos productos.
+    *   Editar productos existentes.
+    *   Eliminar productos.
+    *   Validaciones de formulario.
+    *   Conexión a **MockAPI**.
+*   **Diseño:** Interfaz responsiva utilizando **Bootstrap**, **Styled-Components** e iconos de **React Icons**.
+*   **Feedback:** Notificaciones al usuario usando **React Toastify**.
+*   **SEO:** Optimización de metadatos con **React Helmet**.
 
-## React Compiler
+## 🚀 Instalación y Ejecución
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Sigue estos pasos para correr el proyecto en tu entorno local:
 
-## Expanding the ESLint configuration
+1.  **Clonar el repositorio (o descargar los archivos):**
+    Asegúrate de estar en la carpeta del proyecto desde tu terminal.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2.  **Instalar dependencias:**
+    Ejecuta el siguiente comando para instalar todas las librerías necesarias (React Router, Bootstrap, etc.):
+    ```bash
+    npm install
+    ```
+
+3.  **Iniciar el servidor de desarrollo:**
+    ```bash
+    npm run dev
+    ```
+
+4.  **Abrir en el navegador:**
+    Normalmente disponible en `http://localhost:5173/` (o el puerto que indique la consola).
+
+## 🔐 Credenciales de Acceso
+
+Para acceder a las **Rutas Protegidas** (Carrito de compras y Panel de Administración), debes iniciar sesión con el siguiente usuario de prueba:
+
+*   **Usuario:** `admin`
+*   **Contraseña:** `1234`
+
+## 🛠️ Tecnologías Utilizadas
+
+*   React JS + Vite
+*   React Router DOM (Enrutamiento)
+*   Context API (Manejo de estado global)
+*   Bootstrap 5 (Estilos y grillas)
+*   Styled Components (Estilos personalizados)
+*   React Toastify (Notificaciones)
+*   React Helmet Async (SEO)
+*   MockAPI (Backend simulado)
+
+---
+© 2025 Mi Tienda Online - Talento Tech
